@@ -1,0 +1,31 @@
+
+<!-- Longest Substring Without Repeating Characters -->
+<!-- ASCII, stands for American Standard Code for Information Interchange -->
+
+<html>  
+<head>  
+<script type = "text/javascript">  
+var lengthOfLongestSubstring = function(s) {
+debugger
+    let ans = 0, l = 0, r = 0;
+	s = "abcabcbb";
+    let n = s.length;
+    let map = new Array(256).fill(-1);
+    while (r < n) {
+	debugger
+        if (map[s.charCodeAt(r)] != -1) {
+            l = Math.max(map[s.charCodeAt(r)] + 1, l);
+        }
+        map[s.charCodeAt(r)] = r;
+        ans = Math.max(ans, r - l + 1);
+        r++;
+    }
+    return ans;
+};
+</script>  
+</head>  
+<body>  
+<p>Click the following button to see the function in action</p>  
+<input type = "button" onclick = "lengthOfLongestSubstring()" value = "Display">  
+</body>  
+</html>  
